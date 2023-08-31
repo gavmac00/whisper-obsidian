@@ -20,7 +20,7 @@ Then run the following command to install all necessary dependancies:
 pip install -r requirements.txt
 ```
 
-After this, change the path to your Obsidian Vault, currently mine is located in ``C:\\Users\\Gavin\\OneDrive\\Documents\\Obsidian Vault\\`` so change this to match the path to your Obsidian Vault.
+After this, change the path to your Obsidian Vault, currently mine is located in ``C:\\Users\\Gavin\\OneDrive\\Documents\\Obsidian Vault\\`` inside ``note.py`` so change this to match the path to your Obsidian Vault.
 
 Finally run the following command to create a note with OpenAI's Whisper.
 

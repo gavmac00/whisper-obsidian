@@ -4,7 +4,7 @@ Take Obsidian notes with OpenAI's Whisper.
 # Getting Started
 Create a virtual environment using the following command:
 
-````bash
+```bash
 python -m venv env
 ```
 

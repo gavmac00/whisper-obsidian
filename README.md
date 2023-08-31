@@ -8,6 +8,12 @@ Create a virtual environment using the following command:
 python -m venv env
 ```
 
+Activate the virtual environment using the command:
+
+```bash
+env/Scripts/activate
+```
+
 Then run the following command to install all necessary dependancies:
 
 ```bash

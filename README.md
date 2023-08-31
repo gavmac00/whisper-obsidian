@@ -2,7 +2,11 @@
 Take Obsidian notes with OpenAI's Whisper.
 
 ## Getting Started
-Create a virtual environment using the following command:
+Required Software:
+- Install the Obsidian note taking software at https://obsidian.md/
+- Install Python at https://www.python.org/ (this project was tested on v3.11.3)
+
+Once you have installed the software, create a virtual environment inside the project directory using the following command:
 
 ```bash
 python -m venv env

@@ -1,7 +1,7 @@
 # whisper-obsidian
 Take Obsidian notes with OpenAI's Whisper.
 
-# Getting Started
+## Getting Started
 Create a virtual environment using the following command:
 
 ```bash

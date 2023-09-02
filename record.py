@@ -11,7 +11,7 @@ class AudioRecorder:
     def record_audio(self):
         p = pyaudio.PyAudio()
         stream = p.open(format=pyaudio.paInt16, channels=2, rate=44100, input=True, frames_per_buffer=1024)
-        print("Listening...")
+        print("\nListening...")
         
         while self.is_recording:
             data = stream.read(1024)
@@ -32,7 +32,7 @@ class AudioRecorder:
 
         # Get file size
         file_size = os.path.getsize(filename)
-        print(f"File size: {file_size} bytes")
+        print(f"File size: {file_size/1000} MB")
 
         # Get audio length
         with wave.open(filename, 'rb') as f:

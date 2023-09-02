@@ -32,7 +32,7 @@ class AudioRecorder:
 
         # Get file size
         file_size = os.path.getsize(filename)
-        print(f"File size: {file_size/1000000} MB")
+        print(f"File size: {format(file_size / (1024 * 1024), '.2f')} MB")
 
         # Get audio length
         with wave.open(filename, 'rb') as f:

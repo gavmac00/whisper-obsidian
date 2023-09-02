@@ -1,6 +1,7 @@
 import pyaudio
 import wave
 import threading
+import os
 
 class AudioRecorder:
     def __init__(self):
@@ -28,6 +29,17 @@ class AudioRecorder:
         wf.setframerate(44100)
         wf.writeframes(b''.join(self.frames))
         wf.close()
+
+        # Get file size
+        file_size = os.path.getsize(filename)
+        print(f"File size: {file_size} bytes")
+
+        # Get audio length
+        with wave.open(filename, 'rb') as f:
+            frames = f.getnframes()
+            rate = f.getframerate()
+            length = frames / float(rate)
+            print(f"Audio length: {length:.2f} seconds")
 
     def start(self):
         input("Press Enter to start recording...")

@@ -1,5 +1,4 @@
 import openai # imports whisper
-import pyaudio # imports pyaudio for recording audio
 import os # imports os
 import re # imports re for sanitizing the title
 

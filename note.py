@@ -36,7 +36,7 @@ else:
 # Remove or replace invalid characters
 sanitized_title = re.sub(r'[\\/*?:"<>|]', '_', title)
 
-with open(f"{obsidian_vault_path}/{title}.md", "w") as f:
+with open(f"{obsidian_vault_path}/{sanitized_title}.md", "w") as f:
     f.write(obsidian_note)
 
-print(f"Note saved as {title}.md in Obsidian Vault.")
+print(f"Note saved as {sanitized_title}.md in Obsidian Vault.")

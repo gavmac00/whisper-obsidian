@@ -1,6 +1,7 @@
 import openai # imports whisper
 import pyaudio # imports pyaudio for recording audio
 import os # imports os
+import re # imports re for sanitizing the title
 
 from record import AudioRecorder # imports record.py
 
@@ -31,6 +32,9 @@ if include_title == "y":
   obsidian_note = f"# {title}\n\n{transcript}"
 else:
   obsidian_note = f"{transcript}"
+
+# Remove or replace invalid characters
+sanitized_title = re.sub(r'[\\/*?:"<>|]', '_', title)
 
 with open(f"{obsidian_vault_path}/{title}.md", "w") as f:
     f.write(obsidian_note)

@@ -10,7 +10,7 @@ class AudioRecorder:
 
     def record_audio(self):
         p = pyaudio.PyAudio()
-        stream = p.open(format=pyaudio.paInt16, channels=2, rate=44100, input=True, frames_per_buffer=1024)
+        stream = p.open(format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=1024)
         print("\nListening...")
         
         while self.is_recording:

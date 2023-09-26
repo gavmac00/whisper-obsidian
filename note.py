@@ -25,7 +25,11 @@ if __name__ == "__main__":
 audio_file= open("audio.wav", "rb")
 
 # saves the response from the transcription (string)
-response = openai.Audio.transcribe("whisper-1", audio_file)
+response = openai.Audio.transcribe(
+  "whisper-1", 
+  audio_file,
+  prompt=f"Transcribe the following audio recording titled:\n\n{title}\n\n into a well formatted note for the Obsidian software."
+  )
 
 transcript = response["text"]
 
@@ -40,17 +44,19 @@ if include_folder == "y":
   obsidian_vault_path = f"{obsidian_vault_path}{folder}"
   if not os.path.exists(obsidian_vault_path):
     os.mkdir(obsidian_vault_path)
-  
+
 # Remove or replace invalid characters
 sanitized_title = re.sub(r'[\\/*?:"<>|]', '_', title)
 
 filepath = f"{obsidian_vault_path}/{sanitized_title}.md"
 
 if os.path.exists(filepath):
-  overwrite = input("File already exists. Overwrite? (y/n): ")
+  overwrite = input("File already exists. Append? (y/n): ")
   if overwrite == "y":
+    existing_note = open(f"{obsidian_vault_path}/{sanitized_title}.md", "r")
+    existing_note_text = existing_note.read()
     with open(f"{obsidian_vault_path}/{sanitized_title}.md", "w") as f:
-      f.write(obsidian_note)
+      f.write(existing_note_text + "\n\n" + obsidian_note)
   else:
     print("File not saved.")
 else:
